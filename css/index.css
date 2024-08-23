@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  justify-content: center;
+  border: red;
+}
+
+.center {
+  width: 400px;
+  padding: 10px;
+  background: #c5cbda;
+  border: #5f85db;
+  color: #fff;
+  border-style: solid;
+  font-weight: bold;
+  font-family: Tahoma;
+}
+
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:invalid:required {
+  border: 2px red;
+}
+
+input[type="number"],
+fieldset {
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+} */
+
+input[type="submit"] {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+input[type="submit"] :hover {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgb(138, 164, 138);
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+input[type="text"]:focus {
+  background-color: lightblue;
+}

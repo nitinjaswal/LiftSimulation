@@ -1,0 +1,66 @@
+.divider {
+  color: var(--color-divider);
+}
+
+.container-building {
+  display: flex;
+  justify-content: center;
+}
+
+.center-building {
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  font-family: Tahoma;
+}
+
+.floor-container {
+  width: 100%;
+  display: flex;
+  height: 90px;
+  flex-direction: row;
+  border-bottom: 1px solid black;
+}
+
+.horizontal_line {
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid black;
+  line-height: 100%;
+}
+
+.buttons-container {
+  cursor: pointer;
+}
+
+.up {
+  background-color: green;
+}
+
+.down {
+  background-color: yellow;
+}
+
+.lift-container {
+  height: 100%;
+  width: 50px;
+  overflow: hidden;
+  margin-left: 20px;
+  background-color: var(--color-divider);
+}
+
+.lift-door {
+  background-color: #1b1a17;
+  width: 50%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.lift-door-left {
+  float: left;
+}
+
+.lift-door-right {
+  float: right;
+}
