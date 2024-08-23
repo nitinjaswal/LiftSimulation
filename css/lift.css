@@ -1,6 +1,7 @@
 .container-building {
   display: flex;
   justify-content: center;
+  background-color: #d5d9e0;
 }
 
 .center-building {
