@@ -83,11 +83,12 @@ function createLifts(liftCount) {
 
 //Storing floor ids in queue
 function storeFloorClickEvent(event) {
-  let clickedButton = event.target.id;
+  let clickedFloor = event.target.id;
   let floorNumber;
-  floorNumber = parseInt(clickedButton.match(/\d+$/));
 
-  //Check if lift is already not in working
+  //floorNumber = parseInt(clickedButton.match(/\d+$/));
+  floorNumber = clickedFloor;
+  //make sure Up & Down is pushed once into the queue
   if (!queue.includes(floorNumber) && !liftInProcess.includes(floorNumber)) {
     queue.push(floorNumber);
   }
@@ -108,13 +109,13 @@ function getAvailableLift(floorId) {
 }
 
 function startLift(lift, toFloor) {
-  queue.shift();
+  let floorElement = queue.shift();
   let yAxis = (toFloor - 1) * 91 * -1; //91 is lift height
   let from = lift.currentFloor;
   let transValue = Math.abs(toFloor - from) * 1;
 
   let lid = lift.element.id.match(/\d+$/);
-  liftInProcess[lid] = toFloor;
+  liftInProcess[lid] = floorElement;
 
   //Actual lift html element
   let liftId = lift.element.id;
@@ -128,23 +129,24 @@ function startLift(lift, toFloor) {
 
   handleDoorAnimation(lid, transValue * 1000);
   setTimeout(() => {
-    resetLiftState(liftId, toFloor);
+    resetLiftState(liftId, floorElement);
   }, transValue * 1000 + 5000);
 }
 
-function resetLiftState(liftId, toFloor) {
+function resetLiftState(liftId, floorElement) {
+  let toFloor = parseInt(floorElement.match(/\d+$/));
   for (lift of lifts) {
     if (lift.element.id == liftId) {
       lift.isLiftBusy = false;
       lift.currentFloor = toFloor;
     }
   }
-  liftInProcess[toFloor] = null;
+  liftInProcess[floorElement] = null;
 }
 
 function checkLifts() {
   if (queue.length == 0) return;
-  let floorId = queue[0]; //get first item in queue
+  let floorId = parseInt(queue[0].match(/\d+$/)); //get first item in queue
 
   let lift = getAvailableLift(floorId);
 
