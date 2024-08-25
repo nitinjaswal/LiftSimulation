@@ -1,5 +1,4 @@
 function validate() {
-  debugger;
   let floorCount = document.getElementById("floors").value;
   let liftCount = document.getElementById("lifts").value;
 

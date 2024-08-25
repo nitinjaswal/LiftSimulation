@@ -17,7 +17,7 @@ function createBuilding() {
   createFloors(floorCount);
   createLifts(liftCount);
 
-  setInterval(checkLifts, 50);
+  setInterval(checkLifts, 200);
 }
 
 //Creating html for floor and appending it
@@ -88,10 +88,28 @@ function storeFloorClickEvent(event) {
 
   //floorNumber = parseInt(clickedButton.match(/\d+$/));
   floorNumber = clickedFloor;
+  // let liftId = currentLiftOnFloor(clickedFloor);
+
+  // if (liftId) {
+  //   openDoor(liftId);
+  //   closeDoor(liftId);
+  // }
+  // console.log(liftId);
   //make sure Up & Down is pushed once into the queue
   if (!queue.includes(floorNumber) && !liftInProcess.includes(floorNumber)) {
     queue.push(floorNumber);
   }
+}
+
+function currentLiftOnFloor(clickedFloor) {
+  floorId = clickedFloor.match(/\d+$/);
+  let currentLiftOnFloor;
+  for (lift of lifts) {
+    if (lift.currentFloor == floorId) {
+      currentLiftOnFloor = lift;
+    }
+  }
+  return currentLiftOnFloor?.element.id.match(/\d+$/);
 }
 
 //Checking availability of lifts from (lifts array (isLiftBusy flag)) and select nearest lift
@@ -141,7 +159,8 @@ function resetLiftState(liftId, floorElement) {
       lift.currentFloor = toFloor;
     }
   }
-  liftInProcess[floorElement] = null;
+  let index = liftInProcess.indexOf(floorElement);
+  liftInProcess[index] = null;
 }
 
 function checkLifts() {

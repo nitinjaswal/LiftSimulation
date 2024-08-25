@@ -19,7 +19,7 @@
   height: 90px;
   flex-direction: row;
   border-bottom: 1px solid black;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 .horizontal_line {
