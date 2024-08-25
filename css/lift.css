@@ -1,7 +1,9 @@
-.container-building {
-  display: flex;
-  justify-content: center;
+.body {
   background-color: #d5d9e0;
+}
+.container-building {
+  display: -webkit-inline-box;
+  justify-content: center;
 }
 
 .center-building {
@@ -13,7 +15,7 @@
 
 .floor-container {
   width: 100%;
-  display: flex;
+  display: -webkit-inline-box;
   height: 90px;
   flex-direction: row;
   border-bottom: 1px solid black;

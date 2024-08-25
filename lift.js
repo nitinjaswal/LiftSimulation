@@ -125,7 +125,7 @@ function startLift(lift, toFloor) {
   selectedLiftElement.style.transform = `translateY(${yAxis}px)`;
   selectedLiftElement.style.transition = `${transValue}s linear`;
 
-  //open door when lift reaches the floor with soem delay
+  //open door when lift reaches the floor with some delay
 
   handleDoorAnimation(lid, transValue * 1000);
   setTimeout(() => {
