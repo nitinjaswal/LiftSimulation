@@ -88,14 +88,7 @@ function storeFloorClickEvent(event) {
 
   //floorNumber = parseInt(clickedButton.match(/\d+$/));
   floorNumber = clickedFloor;
-  // let liftId = currentLiftOnFloor(clickedFloor);
 
-  // if (liftId) {
-  //   openDoor(liftId);
-  //   closeDoor(liftId);
-  // }
-  // console.log(liftId);
-  //make sure Up & Down is pushed once into the queue
   if (!queue.includes(floorNumber) && !liftInProcess.includes(floorNumber)) {
     queue.push(floorNumber);
   }
