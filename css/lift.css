@@ -1,8 +1,8 @@
 .body {
-  background-color: #d5d9e0;
+  background-color: rgb(182, 173, 173);
 }
 .container-building {
-  display: -webkit-inline-box;
+  /* display: -webkit-inline-box; */
   justify-content: center;
 }
 
@@ -19,6 +19,7 @@
   height: 90px;
   flex-direction: row;
   border-bottom: 1px solid black;
+  overflow: auto;
 }
 
 .horizontal_line {
