@@ -21,6 +21,7 @@
   border-bottom: 1px solid black;
   /* overflow: auto; */
   position: relative;
+  min-width: 10000px;
 }
 
 .horizontal_line {

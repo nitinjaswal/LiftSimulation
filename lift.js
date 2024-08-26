@@ -1,6 +1,7 @@
 let lifts = [];
 let queue = [];
 let liftInProcess = [];
+
 window.onload = function () {
   generateFloorAndLifts();
 };
@@ -17,7 +18,18 @@ function createBuilding() {
   createFloors(floorCount);
   createLifts(liftCount);
 
+  //Need to fix width of lift floor ad per lift numbers
+  floorWidth(liftCount);
   setInterval(checkLifts, 200);
+}
+
+function floorWidth(liftCount) {
+  let liftWidth = 50;
+  let totalWidth = liftWidth * liftCount * 1.5;
+
+  document.querySelectorAll(".floor-container").forEach((floor) => {
+    floor.style.minWidth = `${totalWidth}px`;
+  });
 }
 
 //Creating html for floor and appending it
@@ -139,6 +151,8 @@ function startLift(lift, toFloor) {
   //open door when lift reaches the floor with some delay
 
   handleDoorAnimation(lid, transValue * 1000);
+
+  //Reset lift state when door open close is complete upon reaching the fllor
   setTimeout(() => {
     resetLiftState(liftId, floorElement);
   }, transValue * 1000 + 5000);
