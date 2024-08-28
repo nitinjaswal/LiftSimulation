@@ -135,7 +135,7 @@ function startLift(lift, toFloor) {
   let floorElement = queue.shift();
   let yAxis = (toFloor - 1) * 91 * -1; //91 is lift height
   let from = lift.currentFloor;
-  let transValue = Math.abs(toFloor - from) * 1;
+  let transValue = Math.abs(toFloor - from) * 2.5; //Fix after review
 
   let lid = lift.element.id.match(/\d+$/);
   liftInProcess[lid] = floorElement;
