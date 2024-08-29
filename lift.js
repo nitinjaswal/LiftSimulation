@@ -40,6 +40,7 @@ function createFloors(floorCount) {
   for (let i = 1; i <= floorCount; i++) {
     let building = `
         <div class="floor-container" id='floor${i}'>      
+   
        <span id="sp${i}">
             ${
               i == floorCount || liftC == 0
@@ -60,8 +61,11 @@ function createFloors(floorCount) {
                 `
             }
               <br>
+                  <span> Floor ${i}</span>
               </span>
+              
         </div>
+        
      
       `;
 
