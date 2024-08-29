@@ -2,6 +2,8 @@ let lifts = [];
 let queue = [];
 let liftInProcess = [];
 
+let liftC = localStorage.getItem("liftCount");
+
 window.onload = function () {
   generateFloorAndLifts();
 };
@@ -40,7 +42,7 @@ function createFloors(floorCount) {
         <div class="floor-container" id='floor${i}'>      
        <span id="sp${i}">
             ${
-              i == floorCount
+              i == floorCount || liftC == 0
                 ? ""
                 : `
                   <button class="up" id="up${i}" onclick="storeFloorClickEvent(event)">
@@ -49,7 +51,7 @@ function createFloors(floorCount) {
                `
             }
             ${
-              i == 1
+              i == 1 || liftC == 0
                 ? ""
                 : `
                   <button class="down" id="down${i}" onclick="storeFloorClickEvent(event)">
